@@ -25,10 +25,10 @@ describe('Codewars testing', () => {
 
   });
 
-  describe('spinwords testing', () => {
+  describe.only('spinwords testing', () => {
     it('reverses strings of 5 or more length', () => {
       tester = 'Hey fellow warriors';
-      assert.equal(spinWords(tester), 'Hey wollef sroirraw');
+      assert.deepEqual(spinWords(tester), 'Hey wollef sroirraw');
     });
   });
 });
