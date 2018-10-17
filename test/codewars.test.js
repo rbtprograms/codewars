@@ -25,7 +25,7 @@ describe('Codewars testing', () => {
 
   });
 
-  describe.only('spinwords testing', () => {
+  describe('spinwords testing', () => {
     it('reverses strings of 5 or more length', () => {
       tester = 'Hey fellow warriors';
       assert.deepEqual(spinWords(tester), 'Hey wollef sroirraw');
