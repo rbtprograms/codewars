@@ -1,7 +1,8 @@
 const assert = require('assert');
 const { 
   findOdd, 
-  spinWords } = require('../lib/codewars');
+  spinWords,
+  smallEnough } = require('../lib/codewars');
 
 describe('Codewars testing', () => {
   let tester;
@@ -29,6 +30,19 @@ describe('Codewars testing', () => {
     it('reverses strings of 5 or more length', () => {
       tester = 'Hey fellow warriors';
       assert.deepEqual(spinWords(tester), 'Hey wollef sroirraw');
+    });
+  });
+
+  describe('array limit', () => {
+    it('returns true if all items are smaller than limit', () => {
+      assert.equal(smallEnough([66, 101], 200), true);
+      assert.equal(smallEnough([101, 45, 75, 105, 99, 107], 107), true);
+      assert.equal(smallEnough([80, 117, 115, 104, 45, 85, 112, 115], 120), true);
+    });
+    
+    it('returns false if any items are larger than limit', () => {
+      assert.equal(smallEnough([78, 117, 110, 99, 104, 117, 107, 115], 100), false);
+      assert.equal(smallEnough([101, 45, 75, 105, 99, 107], 50), false);
     });
   });
 });
