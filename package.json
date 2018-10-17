@@ -1,0 +1,27 @@
+{
+  "name": "codewars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "npm run test:mocha",
+    "test:mocha": "mocha",
+    "start": "npm run test:mocha -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rbtprograms/codewars.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rbtprograms/codewars/issues"
+  },
+  "homepage": "https://github.com/rbtprograms/codewars#readme",
+  "dependencies": {
+    "eslint": "^5.7.0",
+    "mocha": "^5.2.0"
+  }
+}
