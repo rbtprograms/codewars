@@ -1,10 +1,12 @@
 const assert = require('assert');
-const { findOdd } = require('../lib/OddInt');
+const { 
+  findOdd, 
+  spinWords } = require('../lib/codewars');
 
 describe('Codewars testing', () => {
+  let tester;
 
   describe('Find Odd Integer tests', () => {
-    let tester;
 
     it('gets 5 from first test', () => {
       tester = [20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5];
@@ -21,5 +23,12 @@ describe('Codewars testing', () => {
       assert.equal(findOdd(tester), 10);
     });
 
+  });
+
+  describe('spinwords testing', () => {
+    it('reverses strings of 5 or more length', () => {
+      tester = 'Hey fellow warriors';
+      assert.deepEqual(spinWords(tester), 'Hey wollef sroirraw');
+    });
   });
 });
