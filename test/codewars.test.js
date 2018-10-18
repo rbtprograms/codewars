@@ -2,10 +2,29 @@ const assert = require('assert');
 const { 
   findOdd, 
   spinWords,
-  smallEnough } = require('../lib/codewars');
+  smallEnough,
+  findOutlier } = require('../lib/codewars');
 
 describe('Codewars testing', () => {
   let tester;
+
+  describe.only('find outliers tests', () => {
+
+    it('be able to get even numbers, and should treat 0 as even', () => {
+      assert.equal(findOutlier([1, 2, 3]), 2);
+      assert.equal(findOutlier([1, 1, 0, 1, 1]), 0);
+    });
+
+    it('should also work for finding odds', () => {
+      assert.equal(findOutlier([2, 6, 8, 10, 3]), 3);
+      assert.equal(findOutlier([0, 0, 3, 0, 0]), 3);
+      assert.equal(findOutlier([0, 1, 2]), 1);
+    });
+
+    it('should work on first item in array', () => {
+      assert.equal(findOutlier([3, 6, 8, 10, 2]), 3);
+    });
+  });
 
   describe('Find Odd Integer tests', () => {
 
