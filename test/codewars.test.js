@@ -3,12 +3,21 @@ const {
   findOdd, 
   spinWords,
   smallEnough,
-  findOutlier } = require('../lib/codewars');
+  findOutlier,
+  dutyFree } = require('../lib/codewars');
 
 describe('Codewars testing', () => {
   let tester;
 
-  describe.only('find outliers tests', () => {
+  describe.only('dutyFree tests', () => {
+    it('should find how much I am saving by buying duty free', () => {
+      assert.equal(dutyFree(12, 50, 1000), 166);
+      assert.equal(dutyFree(17, 10, 500), 294);
+      assert.equal(dutyFree(24, 35, 3000), 357);
+    });
+  });
+
+  describe('find outliers tests', () => {
 
     it('be able to get even numbers, and should treat 0 as even', () => {
       assert.equal(findOutlier([1, 2, 3]), 2);
