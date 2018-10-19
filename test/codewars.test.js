@@ -4,12 +4,21 @@ const {
   spinWords,
   smallEnough,
   findOutlier,
-  dutyFree } = require('../lib/codewars');
+  dutyFree,
+  listPosition } = require('../lib/codewars');
 
 describe('Codewars testing', () => {
   let tester;
 
-  describe.only('dutyFree tests', () => {
+  describe('listPosition tests', () => {
+    it('should pass the tests', () => {
+      assert.equal(listPosition('ABAB'), 2);
+      assert.equal(listPosition('BOOKKEEPER'), 10743);
+      assert.equal(listPosition('QUESTION'), 24572);
+    });
+  });
+
+  describe('dutyFree tests', () => {
     it('should find how much I am saving by buying duty free', () => {
       assert.equal(dutyFree(12, 50, 1000), 166);
       assert.equal(dutyFree(17, 10, 500), 294);
