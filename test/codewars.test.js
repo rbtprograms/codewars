@@ -5,11 +5,24 @@ const {
   smallEnough,
   findOutlier,
   dutyFree } = require('../lib/codewars');
+const { tokenize } = require('../lib/token');
 
 describe('Codewars testing', () => {
   let tester;
 
-  describe.only('dutyFree tests', () => {
+  describe.only('2kyu tokenizer', () => {
+
+    it('can tokenize things', () => {
+      // console.log(tokenize('1+11(3+5)'));
+      // assert.isDefined(tokenize('1+1'));
+      const tokens = tokenize('2 /2+3 * 4.75- -6');
+      tokens.forEach((token, i) => {
+        console.log(i + ' => ' + token.value);
+      });
+    });
+  });
+
+  describe('dutyFree tests', () => {
     it('should find how much I am saving by buying duty free', () => {
       assert.equal(dutyFree(12, 50, 1000), 166);
       assert.equal(dutyFree(17, 10, 500), 294);
