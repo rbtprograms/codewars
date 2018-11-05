@@ -7,11 +7,12 @@ const {
   dutyFree,
   listPosition,
   songDecoder } = require('../lib/codewars');
+const { tokenize } = require('../lib/token');
 
 describe('Codewars testing', () => {
   let tester;
 
-  describe.only('song decoder tests', () => {
+  describe('song decoder tests', () => {
     it('should pass the tests', () => {
       assert.equal(songDecoder('AWUBBWUBC'), 'A B C', 'WUB should be replaced by 1 space');
       assert.equal(songDecoder('AWUBWUBWUBBWUBWUBWUBC'), 'A B C', 'multiples WUB should be replaced by only 1 space');
@@ -25,6 +26,15 @@ describe('Codewars testing', () => {
       assert.equal(listPosition('ABAB'), 2);
       assert.equal(listPosition('BOOKKEEPER'), 10743);
       assert.equal(listPosition('QUESTION'), 24572);
+  describe.only('2kyu tokenizer', () => {
+
+    it('can tokenize things', () => {
+      // console.log(tokenize('1+11(3+5)'));
+      // assert.isDefined(tokenize('1+1'));
+      const tokens = tokenize('2 /2+3 * 4.75- -6');
+      tokens.forEach((token, i) => {
+        console.log(i + ' => ' + token.value);
+      });
     });
   });
 
