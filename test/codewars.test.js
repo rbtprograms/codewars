@@ -4,12 +4,28 @@ const {
   spinWords,
   smallEnough,
   findOutlier,
-  dutyFree } = require('../lib/codewars');
+  dutyFree,
+  listPosition,
+  songDecoder } = require('../lib/codewars');
 const { tokenize } = require('../lib/token');
 
 describe('Codewars testing', () => {
   let tester;
 
+  describe('song decoder tests', () => {
+    it('should pass the tests', () => {
+      assert.equal(songDecoder('AWUBBWUBC'), 'A B C', 'WUB should be replaced by 1 space');
+      assert.equal(songDecoder('AWUBWUBWUBBWUBWUBWUBC'), 'A B C', 'multiples WUB should be replaced by only 1 space');
+      assert.equal(songDecoder('WUBAWUBBWUBCWUB'), 'A B C', 'heading or trailing spaces should be removed');
+
+    });
+  });
+
+  describe('listPosition tests', () => {
+    it('should pass the tests', () => {
+      assert.equal(listPosition('ABAB'), 2);
+      assert.equal(listPosition('BOOKKEEPER'), 10743);
+      assert.equal(listPosition('QUESTION'), 24572);
   describe.only('2kyu tokenizer', () => {
 
     it('can tokenize things', () => {
