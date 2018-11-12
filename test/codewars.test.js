@@ -11,14 +11,11 @@ describe('Codewars testing', () => {
   let tester;
 
   describe.only('2kyu tokenizer', () => {
-
     it('can tokenize things', () => {
-      // console.log(tokenize('1+11(3+5)'));
-      // assert.isDefined(tokenize('1+1'));
-      const tokens = tokenize('2 /2+3 * 4.75- -6');
-      tokens.forEach((token, i) => {
-        console.log(i + ' => ' + token.value);
-      });
+      const tokens = tokenize('2 + 3 - 4.5 * (5+2)');
+      console.log(tokens);
+      assert.equal(tokens[0].type, 'number');
+      assert.equal(tokens[0].value, '2');
     });
   });
 
