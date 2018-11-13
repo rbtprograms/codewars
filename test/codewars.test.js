@@ -6,11 +6,63 @@ const {
   findOutlier,
   dutyFree,
   listPosition,
-  songDecoder } = require('../lib/codewars');
-const { tokenize } = require('../lib/token');
-
+  songDecoder,
+  pigIt } = require('../lib/codewars');
+const { 
+  tokenize,
+  parser,
+  // solve,
+  calc
+} = require('../lib/token');
+const {
+  lex,
+  parse,
+  //   evaulate,
+  calculate
+} = require('../lib/examp');
+  
 describe('Codewars testing', () => {
   let tester;
+    
+  describe.only('expression interpreter', () => {
+    it('can tokenize things effectively', () => {
+      const tokens = tokenize('2 + 3 - 4.5 * (5+2)');
+      assert.equal(tokens[0].type, 'number');
+      assert.equal(tokens[0].value, '2');
+      assert.equal(tokens[tokens.length - 1].type, '(end)');
+      assert.deepEqual(tokenize('2+1'), lex('2+1'));
+    });
+
+    it('can parse things effectively', () => {
+      const expression = '2+1*(5+4)';
+      assert.deepEqual(parser(tokenize(expression)), parse(lex(expression)));
+    });
+
+
+    it('has my refactored function that can pass the required tests', () => {
+      assert.equal(calc('2+1'), 3);
+      assert.equal(calc('2*3'), 6);
+      assert.equal(calc('8/2'), 4);
+      assert.equal(calc('5 +-2'), 3);
+      assert.equal(calc('5 * (6-4)'), 10);
+    });
+
+    it('has an example function that can pass the required tests', () => {
+      assert.equal(calculate('2+1'), 3);
+      assert.equal(calculate('2*3'), 6);
+      assert.equal(calculate('8/2'), 4);
+      assert.equal(calculate('5 +-2'), 3);
+      assert.equal(calculate('5 * (6-4)'), 10);
+    });
+  });
+
+
+  describe('pigIt tests', () => {
+    it('should pass the tests', () => {
+      assert.equal(pigIt('Pig latin is cool'), 'igPay atinlay siay oolcay');
+      assert.equal(pigIt('This is my string'), 'hisTay siay ymay tringsay');
+    });
+  });
 
   describe('song decoder tests', () => {
     it('should pass the tests', () => {
@@ -26,14 +78,9 @@ describe('Codewars testing', () => {
       assert.equal(listPosition('ABAB'), 2);
       assert.equal(listPosition('BOOKKEEPER'), 10743);
       assert.equal(listPosition('QUESTION'), 24572);
-  describe.only('2kyu tokenizer', () => {
-    it('can tokenize things', () => {
-      const tokens = tokenize('2 + 3 - 4.5 * (5+2)');
-      console.log(tokens);
-      assert.equal(tokens[0].type, 'number');
-      assert.equal(tokens[0].value, '2');
     });
   });
+
 
   describe('dutyFree tests', () => {
     it('should find how much I am saving by buying duty free', () => {
