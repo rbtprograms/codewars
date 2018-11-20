@@ -7,24 +7,34 @@ const {
   dutyFree,
   listPosition,
   songDecoder,
-  pigIt } = require('../lib/codewars');
+  pigIt,
+  lowestProduct } = require('../lib/codewars');
 const { 
   tokenize,
   parser,
-  // solve,
   calc
 } = require('../lib/token');
 const {
   lex,
   parse,
-  //   evaulate,
   calculate
 } = require('../lib/examp');
   
 describe('Codewars testing', () => {
   let tester;
+
+  describe.only('lowest product of 4 digits', () => {
+    it('can pass the tests', () => {
+      assert.equal(lowestProduct('123456789'), 24); 
+      assert.equal(lowestProduct('234567899'), 120); 
+      assert.equal(lowestProduct('2345611117899'), 1);
+      assert.equal(lowestProduct('333'), 'Number is too small');
+      assert.equal(lowestProduct('1234111'), 4, 'Numbers should be consecutives');        
+      assert.equal(lowestProduct('9041922734'), 0);        
+    });
+  });
     
-  describe.only('expression interpreter', () => {
+  describe('expression interpreter', () => {
     it('can tokenize things effectively', () => {
       const tokens = tokenize('2 + 3 - 4.5 * (5+2)');
       assert.equal(tokens[0].type, 'number');
