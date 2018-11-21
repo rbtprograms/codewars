@@ -8,7 +8,8 @@ const {
   listPosition,
   songDecoder,
   pigIt,
-  lowestProduct } = require('../lib/codewars');
+  lowestProduct,
+  cleanString } = require('../lib/codewars');
 const { 
   tokenize,
   parser,
@@ -23,7 +24,14 @@ const {
 describe('Codewars testing', () => {
   let tester;
 
-  describe.only('lowest product of 4 digits', () => {
+  describe.only('clean string kata', () => {
+    it('can pass all the tests', () => {
+      assert.equal(cleanString('abc#d##c'), 'ac');
+      assert.equal(cleanString('abc####d##c#'), '');
+    });
+  });
+
+  describe('lowest product of 4 digits', () => {
     it('can pass the tests', () => {
       assert.equal(lowestProduct('123456789'), 24); 
       assert.equal(lowestProduct('234567899'), 120); 
