@@ -9,7 +9,8 @@ const {
   songDecoder,
   pigIt,
   lowestProduct,
-  cleanString } = require('../lib/codewars');
+  cleanString,
+  anagrams } = require('../lib/codewars');
 const { 
   tokenize,
   parser,
@@ -24,7 +25,15 @@ const {
 describe('Codewars testing', () => {
   let tester;
 
-  describe.only('clean string kata', () => {
+  describe('anagrams function', () => {
+    it('can pass the tests', () => {
+      assert.deepEqual(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']), ['aabb', 'bbaa']);
+      assert.deepEqual(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']), ['carer', 'racer']);
+      assert.deepEqual(anagrams('laser', ['lazing', 'lazy',  'lacer']), []);
+    });
+  });
+
+  describe('clean string kata', () => {
     it('can pass all the tests', () => {
       assert.equal(cleanString('abc#d##c'), 'ac');
       assert.equal(cleanString('abc####d##c#'), '');
