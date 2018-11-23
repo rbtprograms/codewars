@@ -10,7 +10,8 @@ const {
   pigIt,
   lowestProduct,
   cleanString,
-  anagrams } = require('../lib/codewars');
+  anagrams,
+  sumStrings } = require('../lib/codewars');
 const { 
   tokenize,
   parser,
@@ -24,6 +25,12 @@ const {
   
 describe('Codewars testing', () => {
   let tester;
+
+  describe.only('sum strings', () => {
+    it('can pass a test', () => {
+      assert.equal(sumStrings('123', '456'), '579');
+    });
+  });
 
   describe('anagrams function', () => {
     it('can pass the tests', () => {
