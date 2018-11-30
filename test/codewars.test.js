@@ -11,7 +11,9 @@ const {
   lowestProduct,
   cleanString,
   anagrams,
-  sumStrings } = require('../lib/codewars');
+  sumStrings,
+  formatDuration,
+  persistence } = require('../lib/codewars');
 const { 
   tokenize,
   parser,
@@ -26,7 +28,27 @@ const {
 describe('Codewars testing', () => {
   let tester;
 
-  describe.only('sum strings', () => {
+  describe.only('persistence', () => {
+    it('can pass the tests', () => {
+      assert.equal(persistence(39), 3);
+      assert.equal(persistence(4), 0);
+      assert.equal(persistence(25), 2);
+      assert.equal(persistence(999), 4);
+    });
+  });
+
+  describe('formatDuration', () => {
+    it('can pass the tests', () => {
+      assert.equal(formatDuration(1), '1 second');
+      assert.equal(formatDuration(35), '35 seconds');
+      assert.equal(formatDuration(62), '1 minute and 2 seconds');
+      assert.equal(formatDuration(120), '2 minutes');
+      assert.equal(formatDuration(3600), '1 hour');
+      assert.equal(formatDuration(3662), '1 hour, 1 minute and 2 seconds');
+    });
+  });
+
+  describe('sum strings', () => {
     it('can pass a test', () => {
       assert.equal(sumStrings('123', '456'), '579');
     });
