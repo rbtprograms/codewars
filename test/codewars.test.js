@@ -13,7 +13,8 @@ const {
   anagrams,
   sumStrings,
   formatDuration,
-  persistence } = require('../lib/codewars');
+  persistence,
+  circleSlash } = require('../lib/codewars');
 const { 
   tokenize,
   parser,
@@ -28,7 +29,22 @@ const {
 describe('Codewars testing', () => {
   let tester;
 
-  describe.only('persistence', () => {
+  describe.only('circleSlash', () => {
+    it('can pass the tests', () => {
+      assert.equal(circleSlash(5), 3);
+      assert.equal(circleSlash(11), 7);
+      assert.equal(circleSlash(1), 1);
+      assert.equal(circleSlash(2), 1);
+      assert.equal(circleSlash(3), 3);
+      assert.equal(circleSlash(4), 1);
+      assert.equal(circleSlash(8), 1);
+      assert.equal(circleSlash(16), 1);
+      assert.equal(circleSlash(15), 15);
+      assert.equal(circleSlash(31), 31);
+    });
+  });
+
+  describe('persistence', () => {
     it('can pass the tests', () => {
       assert.equal(persistence(39), 3);
       assert.equal(persistence(4), 0);
