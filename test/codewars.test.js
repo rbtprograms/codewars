@@ -14,7 +14,8 @@ const {
   sumStrings,
   formatDuration,
   persistence,
-  circleSlash } = require('../lib/codewars');
+  circleSlash,
+  sumMix } = require('../lib/codewars');
 const { 
   tokenize,
   parser,
@@ -29,7 +30,15 @@ const {
 describe('Codewars testing', () => {
   let tester;
 
-  describe.only('circleSlash', () => {
+  describe.only('sumMix', () => {
+    it('can pass the tests', () => {
+      assert.equal(sumMix([9, 3, '7', '3']), 22);
+      assert.equal(sumMix(['5', '0', 9, 3, 2, 1, '9', 6, 7]), 42); 
+      assert.equal(sumMix(['3', 6, 6, 0, '5', 8, 5, '6', 2, '0']), 41);
+    });
+  });
+
+  describe.skip('circleSlash', () => {
     it('can pass the tests', () => {
       assert.equal(circleSlash(5), 3);
       assert.equal(circleSlash(11), 7);
