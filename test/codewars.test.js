@@ -15,7 +15,8 @@ const {
   formatDuration,
   persistence,
   sumMix,
-  isValidIP } = require('../lib/codewars');
+  uniqueInOrder
+} = require('../lib/codewars');
 const { 
   tokenize,
   parser,
@@ -30,26 +31,9 @@ const {
 describe('Codewars testing', () => {
   let tester;
 
-  describe('ip validator', () => {
-    it('can pass the tests', () => {
-      assert.equal(isValidIP('0.0.0.0'), true);
-      assert.equal(isValidIP('12.255.56.1'), true);
-      assert.equal(isValidIP('137.255.156.100'), true);
-      
-      assert.equal(isValidIP(''), false);
-      assert.equal(isValidIP('abc.def.ghi.jkl'), false);
-      assert.equal(isValidIP('123.456.789.0'), false);
-      assert.equal(isValidIP('12.34.56'), false);
-      assert.equal(isValidIP('01.02.03.04'), false);
-      assert.equal(isValidIP('256.1.2.3'), false);
-      assert.equal(isValidIP('1.2.3.4.5'), false);
-      assert.equal(isValidIP('123,45,67,89'), false);
-      assert.equal(isValidIP('1e0.1e1.1e2.2e2'), false);
-      assert.equal(isValidIP(' 1.2.3.4'), false);
-      assert.equal(isValidIP('1.2.3.4 '), false);
-      assert.equal(isValidIP('12.34.56.-7'), false);
-      assert.equal(isValidIP('1.2.3.4\n'), false);
-      assert.equal(isValidIP('\n1.2.3.4'), false);
+  describe('uniqueInOrder', () => {
+    it('can pass the test', () => {
+      assert.deepEqual(uniqueInOrder('AAAABBBCCDAABBB'), ['A', 'B', 'C', 'D', 'A', 'B']);
     });
   });
 
