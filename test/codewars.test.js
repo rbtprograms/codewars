@@ -15,7 +15,8 @@ const {
   formatDuration,
   persistence,
   sumMix,
-  uniqueInOrder
+  uniqueInOrder,
+  foldArray
 } = require('../lib/codewars');
 const { 
   tokenize,
@@ -30,6 +31,24 @@ const {
   
 describe('Codewars testing', () => {
   let tester;
+
+  describe('foldArray', () => {
+    it('can pass the tests', () => {
+      let input = [1, 2, 3, 4, 5];
+      let expected = [6, 6, 3];
+      assert.deepEqual(foldArray(input, 1), expected);
+      
+      expected = [9, 6];
+      assert.deepEqual(foldArray(input, 2), expected);
+      
+      expected = [15];
+      assert.deepEqual(foldArray(input, 3), expected);
+      
+      input = [-9, 9, -8, 8, 66, 23];
+      expected = [14, 75, 0];
+      assert.deepEqual(foldArray(input, 1), expected);
+    });
+  });
 
   describe('uniqueInOrder', () => {
     it('can pass the test', () => {
